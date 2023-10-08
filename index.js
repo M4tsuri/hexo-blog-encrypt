@@ -108,7 +108,8 @@ hexo.extend.filter.register('after_post_render', (data) => {
     .replace(/{{hbeKeySalt}}/g, keySalt.toString('hex'))
     .replace(/{{hbeIvSalt}}/g, ivSalt.toString('hex'));
   data.content += `<script data-pjax src="${hexo.config.root}lib/hbe.js"></script><link href="${hexo.config.root}css/hbe.style.css" rel="stylesheet" type="text/css">`;
-  data.excerpt = data.more = config.abstract;
+  data.more = data.content;
+  data.excerpt = config.abstract;
 
   return data;
 }, 1000);
